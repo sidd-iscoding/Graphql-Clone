@@ -67,3 +67,19 @@ mutation {
   }
 }
 
+##Schema
+type Book{
+    bookId: Int!
+    title: String!
+    genre: String!
+    publishedOn: GraphQLDate!
+    author: [Author]!
+}
+<br/>
+type Author{
+    authorId: Int!
+    name: String!
+    age: Int!
+    bookId: Int!
+    
+}
