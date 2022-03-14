@@ -1,0 +1,52 @@
+scalar GraphQLDate
+
+
+
+type Book{
+    bookId: Int!
+    title: String!
+    genre: String!
+    publishedOn: GraphQLDate!
+    author: [Author]!
+}
+
+type Author{
+    authorId: Int!
+    name: String!
+    age: Int!
+    bookId: Int!
+    
+}
+
+input bookargs{
+    bookId: Int!
+    title: String!
+    genre: String!
+    publishedOn: GraphQLDate!
+
+}
+
+
+input authorargs{
+     authorId: Int!
+    name: String!
+    age: Int!
+    bookId: Int!
+    
+
+}
+
+
+type Query {
+  about: String!
+  books: [Book!]!
+  authors: [Author!]!
+  authorByName(name: String!): [Author!]!
+  bookByTitle(title: String!): [Book!]!
+  }
+
+type Mutation {
+      setAboutMessage(message: String!): String
+      addBook(book: bookargs!): Book
+      addAuthor(author: authorargs!): Author
+      }
